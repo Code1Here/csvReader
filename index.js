@@ -1,10 +1,13 @@
 const { loadFile } = require("./loadFile");
 const { countChars } = require("./countChars");
 
-const char = "C231";
-const file = process.argv[2];
-if (file.slice(-3) !== "csv") {
-  console.error("ERROR: you must provide a csv file as an argument");
+const char = process.argv[2];
+const file = process.argv[3];
+/** We can simplify lines 4 & 5
+const [char, file] = process.argv.splice[2];
+*/
+if (!char) {
+  console.error("ERROR: you must provide a character as an argument");
   process.exit(1);
 }
 
